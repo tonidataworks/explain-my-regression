@@ -22,6 +22,7 @@ st.title("Explain My Regression")
 st.write("Upload a dataset, run a regression, and get a plain-English explanation of the results.")
 
 uploaded = st.file_uploader("Upload a CSV file", type=["csv"])
+st.warning("Please ensure that your CSV file is separated strictly by commas (,). Semicolon-separated files may not load correctly.")
 
 def make_narrative(result, X_cols, y_col, n_rows):
     r2 = float(result.rsquared)
@@ -192,3 +193,4 @@ if uploaded:
         st.text(model.summary())
 else:
     st.info("Upload a CSV to get started.")
+
